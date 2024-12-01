@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Menu</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: black;
+        color: goldenrod;
+        margin: 0;
+        padding: 0;
+      }
+      .menu-container {
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+      }
+      .menu-header {
+        text-align: center;
+        font-size: 2.5em;
+        font-weight: bold;
+
+        margin-bottom: 20px;
+        color: goldenrod;
+        border-bottom: 2px solid goldenrod;
+        padding-bottom: 10px;
+      }
+      .menu-section {
+        margin-top: 30px;
+      }
+      .menu-section-title {
+        cursor: pointer;
+        color: goldenrod;
+        background-color: black;
+        font-size: 2rem;
+        font-weight: bold;
+        text-align: center;
+        padding: 15px;
+        border: 3px solid goldenrod;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        transition: all 0.3s ease;
+      }
+
+      .menu-section-title:hover {
+        background-color: goldenrod;
+        color: black;
+        transform: scale(1.05);
+        box-shadow: 0 4px 10px rgba(255, 140, 0, 0.8);
+      }
+
+      .menu-section-title:focus {
+        background-color: #ffd700;
+        color: black;
+        outline: none;
+        box-shadow: 0 4px 15px rgba(255, 215, 0, 0.8);
+      }
+
+      .menu-items {
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.3s ease-out;
+      }
+
+      .menu-items.open {
+        max-height: 1000px;
+        transition: max-height 0.3s ease-in;
+      }
+
+      .menu-section-title {
+        cursor: pointer;
+        color: orange;
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+
+      .menu-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid goldenrod;
+        padding: 10px 0;
+      }
+      .menu-item p {
+        margin: 0;
+        font-size: 1.2em;
+      }
+      .menu-item .price {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="menu-container">
+      <div class="menu-header">Carta</div>
+
+      <!-- Tapas Section -->
+      <div class="menu-section">
+        <div class="menu-section-title">Tapas</div>
+        <div class="menu-items" id="tapas-menu">
+          <div class="menu-item">
+            <p>Gambas a la plancha</p>
+            <p class="price">12.00 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Ensaladilla rusa</p>
+            <p class="price">4.50 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Pan tostado con tomate y alioli</p>
+            <p class="price">4.50 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Calamares a la romana</p>
+            <p class="price">9.00 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Puntillas</p>
+            <p class="price">9.00 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Sepia troceada</p>
+            <p class="price">9.00 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Patatas bravas</p>
+            <p class="price">5.50 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Bravas bacon + queso</p>
+            <p class="price">6.50 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Alitas de pollo con patatas fritas</p>
+            <p class="price">7.50 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Fingers de pollo con patatas fritas</p>
+            <p class="price">7.50 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Nuggets de pollo con patatas fritas</p>
+            <p class="price">7.50 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Croquetas de pollo (6 unidades)</p>
+            <p class="price">6.00 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Croquetas de jamón (6 unidades)</p>
+            <p class="price">6.00 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Croquetas de bacalao (6 unidades)</p>
+            <p class="price">6.00 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Albóndigas</p>
+            <p class="price">7.00 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Callos</p>
+            <p class="price">7.00 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Pulpo a la brasa</p>
+            <p class="price">12.00 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Huevos rotos con jamón</p>
+            <p class="price">8.50 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Tellinas</p>
+            <p class="price">10.00 €</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bocadillos Section -->
+      <div class="menu-section">
+        <div class="menu-section-title">Bocadillos</div>
+        <div class="menu-items" id="bocadillos-menu">
+          <div class="menu-item">
+            <p>Albóndigas</p>
+            <p class="price">5.00 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Sobrasada y queso</p>
+            <p class="price">5.00 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Lomo, queso y tomate</p>
+            <p class="price">5.00 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Bacon, queso y tomate</p>
+            <p class="price">5.00 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Salchichas y tomate</p>
+            <p class="price">5.00 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Vegetal</p>
+            <p class="price">5.00 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Paté</p>
+            <p class="price">5.00 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Atún</p>
+            <p class="price">5.00 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Anchoas</p>
+            <p class="price">5.00 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Panceta</p>
+            <p class="price">5.00 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Sepia</p>
+            <p class="price">7.00 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Burguer completa con patatas</p>
+            <p class="price">7.00 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Serranito</p>
+            <p class="price">5.00 €</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Platos Section -->
+      <div class="menu-section">
+        <div class="menu-section-title">Platos</div>
+        <div class="menu-items" id="platos-menu">
+          <div class="menu-item">
+            <p>Lomo con patatas y huevo</p>
+            <p class="price">7.50 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Pechuga de pollo con pimiento y patatas</p>
+            <p class="price">8.50 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Solomillo a la plancha</p>
+            <p class="price">9.00 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Chuleta de cordero a la brasa</p>
+            <p class="price">9.50 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Pollo al horno con patatas</p>
+            <p class="price">8.00 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Entrecot de ternera a la brasa</p>
+            <p class="price">13.00 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Butifarra catalana a la brasa</p>
+            <p class="price">8.00 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Rabo de toro</p>
+            <p class="price">10.00 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Carrillada con pimiento y patatas</p>
+            <p class="price">8.00 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Codillo con patatas</p>
+            <p class="price">8.00 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Manitas de cerdo</p>
+            <p class="price">7.00 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Sepia entera a la plancha</p>
+            <p class="price">10.00 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Emperador a la plancha</p>
+            <p class="price">9.00 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Salmón a la plancha</p>
+            <p class="price">8.50 €</p>
+          </div>
+          <div class="menu-item">
+            <p>Ingrediente extra (suplemento por ingrediente añadido)</p>
+            <p class="price">1.00 €</p>
+          </div>
+        </div>
+
+        <!-- Postres Section -->
+        <div class="menu-section">
+          <div class="menu-section-title">Postres</div>
+          <div class="menu-items" id="postres-menu">
+            <div class="menu-item">
+              <p>Tarta de queso (Con arándanos)</p>
+              <p class="price">4.00 €</p>
+            </div>
+            <div class="menu-item">
+              <p>Tarta de chocolate</p>
+              <p class="price">3.50 €</p>
+            </div>
+            <div class="menu-item">
+              <p>Helado de contesa</p>
+              <p class="price">3.00 €</p>
+            </div>
+            <div class="menu-item">
+              <p>Helado de whisky</p>
+              <p class="price">3.00 €</p>
+            </div>
+            <div class="menu-item">
+              <p>Coulant de chocolate</p>
+              <p class="price">4.00 €</p>
+            </div>
+            <div class="menu-item">
+              <p>Profiteroles</p>
+              <p class="price">4.00 €</p>
+            </div>
+            <div class="menu-item">
+              <p>Fruta del tiempo</p>
+              <p class="price">3.00 €</p>
+            </div>
+            <div class="menu-item">
+              <p>Flan de huevo casero</p>
+              <p class="price">3.00 €</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Select all section titles
+        const sectionTitles = document.querySelectorAll(".menu-section-title");
+
+        sectionTitles.forEach((title) => {
+          title.addEventListener("click", () => {
+            // Find the associated menu items container
+            const menuItems = title.nextElementSibling;
+
+            // Toggle the "open" class
+            if (menuItems.classList.contains("open")) {
+              menuItems.classList.remove("open");
+            } else {
+              // Close all other sections (optional, for accordion behavior)
+              document
+                .querySelectorAll(".menu-items.open")
+                .forEach((openMenu) => {
+                  openMenu.classList.remove("open");
+                });
+
+              // Open the clicked section
+              menuItems.classList.add("open");
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
